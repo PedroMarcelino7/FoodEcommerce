@@ -1,17 +1,17 @@
 import styled, { css } from 'styled-components'
 
 interface ContainerProps {
-    isMenuOpen: boolean
+  isMenuOpen: boolean
 }
 
 export const Container = styled.aside<ContainerProps>`
   background-color: ${({ theme }) => theme.colors.red};
 
   ${({ isMenuOpen }) =>
-        isMenuOpen
-            ? css`width: 16.3rem;`
-            : css`width: 7.75rem;`
-    }
+    isMenuOpen
+      ? css`width: 16.3rem;`
+      : css`width: 7.75rem;`
+  }
 
   padding: 2rem 0;
   overflow: hidden;
