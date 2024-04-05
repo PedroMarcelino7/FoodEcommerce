@@ -10,6 +10,7 @@ export default function Main() {
   return (
     <Container>
       <Sidebar />
+      
       <section>
         <img src={logoImg} alt="Logo" />
         <Outlet />
