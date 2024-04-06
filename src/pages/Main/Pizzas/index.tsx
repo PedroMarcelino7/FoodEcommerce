@@ -1,9 +1,23 @@
+import { useState, useEffect } from "react"
+
 import { Head } from "../../../components/Head"
 
 import { SnackTitle } from "../../../components/SnackTitle"
 import { Snacks } from "../../../components/Snacks"
 
+import { getPizzas } from "../../../services/api"
+
 export default function Pizzas() {
+    const [pizzas, setPizzas] = useState([])
+
+    useEffect(() => {
+        (async () => {
+            const pizzasRequest = await getPizzas()
+
+            setPizzas(pizzasRequest.data)
+        })()
+    }, [])
+
     const data = [
         {
             id: 1,
@@ -29,7 +43,7 @@ export default function Pizzas() {
 
             <SnackTitle>Pizzas</SnackTitle>
 
-            <Snacks snacks={data} />
+            <Snacks snacks={pizzas} />
         </>
     )
 }
