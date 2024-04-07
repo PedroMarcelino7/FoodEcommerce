@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect, useContext } from "react"
 
 import { Head } from "../../../components/Head"
 
@@ -7,17 +7,10 @@ import { Snacks } from "../../../components/Snacks"
 
 import { getIceCreams } from "../../../services/api"
 import { SnackData } from "../../../interfaces/SnackData"
+import { SnackContext } from "../../../App"
 
 export default function Desserts() {
-    const [iceCreams, setIceCreams] = useState<SnackData[]>([])
-
-    useEffect(() => {
-        (async () => {
-            const iceCreamRequest = await getIceCreams()
-
-            setIceCreams(iceCreamRequest.data)
-        })()
-    }, [])
+    const { iceCreams } = useContext(SnackContext)
 
     return (
         <>
