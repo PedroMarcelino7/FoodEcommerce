@@ -7,7 +7,7 @@ import { Snacks } from "../../../components/Snacks"
 
 import { getDrinks } from "../../../services/api"
 import { SnackData } from "../../../interfaces/SnackData"
-import { SnackContext } from "../../../App"
+import { SnackContext } from "../../../contexts/SnackContext"
 
 export default function Drinks() {
     const { drinks } = useContext(SnackContext)
