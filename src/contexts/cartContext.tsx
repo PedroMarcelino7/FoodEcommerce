@@ -1,5 +1,7 @@
 import { createContext, ReactNode, useState } from 'react'
 import { SnackData } from '../interfaces/SnackData'
+import { toast } from 'react-toastify'
+import { snackEmoji } from '../helpers/snackEmoji'
 
 interface Snack extends SnackData {
     quantity: number
@@ -48,16 +50,18 @@ export function CartProvider({ children }: CartProviderProps) {
                 return item
             })
 
-            console.log(`newCart atualização`, newCart)
+            toast.success(`Outro ${snackEmoji(snack.snack)} ${snack.name} adicionado aos pedidos`)
+            
             setCart(newCart)
-
+            
             return
         }
-
+        
         const newSnack = { ...snack, quantity: 1, subtotal: snack.price }
         const newCart = [...cart, newSnack]
+        
+        toast.success(`${snackEmoji(snack.snack)} ${snack.name} adicionado aos pedidos`)
 
-        console.log(`newCart adição`, newCart)
         setCart(newCart)
     }
 
