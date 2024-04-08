@@ -1,5 +1,6 @@
 import { Head } from '../../components/Head'
 import { OrderHeader } from '../../components/OrderHeader'
+import { Table } from './Table'
 import { Container } from './styles'
 
 export default function Main() {
@@ -8,6 +9,8 @@ export default function Main() {
             <Head title='Carrinho' />
 
             <OrderHeader />
+
+            <Table />
         </Container>
     )
 }
