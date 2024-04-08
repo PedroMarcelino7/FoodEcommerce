@@ -43,6 +43,6 @@ export function CartProvider({ children }: CardProviderProps) {
     return (
         <CartContext.Provider value={{ cart, addSnackIntoCart }}>
             {children}
-        </CartContext.Provider>
+        </CartContext.Provider >
     )
 }

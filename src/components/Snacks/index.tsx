@@ -6,11 +6,16 @@ import { Container } from "./styles"
 import { currencyFormat } from '../../helpers/currencyFormat'
 import { SkeletonSnack } from './SkeletonSnack'
 
+import { useCart } from '../../hooks/useCart'
+import { useState } from 'react'
+
 interface SnacksProps {
     snacks: SnackData[]
 }
 
 export function Snacks({ snacks }: SnacksProps) {
+    const { addSnackIntoCart } = useCart()
+
     return (
         <Container>
             {!snacks.length ? (
@@ -24,7 +29,7 @@ export function Snacks({ snacks }: SnacksProps) {
 
                         <div>
                             <strong>{currencyFormat(snack.price)}</strong>
-                            <button type="button">
+                            <button type="button" onClick={() => addSnackIntoCart(snack)}>
                                 <FiPlus />
                             </button>
                         </div>
