@@ -34,6 +34,25 @@ export function CartProvider({ children }: CardProviderProps) {
     const [cart, setCart] = useState<Snack[]>([])
 
     function addSnackIntoCart(snack: SnackData): void {
+        const snackExistentInCart = cart.find((item) => item.snack === snack.snack && item.id === snack.id)
+
+        if (snackExistentInCart) {
+            const newCart = cart.map((item) => {
+                if (item.id === snack.id) {
+                    const quantity = item.quantity + 1
+                    const subtotal = item.price * quantity
+
+                    return { ...item, quantity, subtotal }
+                }
+
+                setCart(newCart)
+
+                return item
+            })
+
+            return
+        }
+
         const newSnack = { ...snack, quantity: 1, subtotal: snack.price }
         const newCart = [...cart, newSnack]
 
