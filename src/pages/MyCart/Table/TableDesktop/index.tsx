@@ -1,6 +1,9 @@
 import { useCart } from "../../../../hooks/useCart"
 import { Container } from "./styles"
 
+import plusImg from '../../../../assets/circle-plus.svg'
+import minusImg from '../../../../assets/circle-minus.svg'
+
 export function TableDesktop() {
     const { cart } = useCart()
 
@@ -27,7 +30,17 @@ export function TableDesktop() {
                                 <span>{item.price}</span>
                             </td>
                             <td>
-                                {item.quantity}
+                                <div>
+                                    <button type="button" onClick={() => console.log('decrementar')}>
+                                        <img src={minusImg} alt="Decrementar" />
+                                    </button>
+
+                                    <span>{item.quantity}</span>
+                                    
+                                    <button type="button" onClick={() => console.log('incrementar')}>
+                                        <img src={plusImg} alt="Incrementar" />
+                                    </button>
+                                </div>
                             </td>
                             <td>
                                 <h5>{item.subtotal}</h5>
