@@ -1,3 +1,5 @@
+import { FaTrashAlt } from 'react-icons/fa'
+
 import { useCart } from "../../../../hooks/useCart"
 import { Container } from "./styles"
 
@@ -5,7 +7,7 @@ import plusImg from '../../../../assets/circle-plus.svg'
 import minusImg from '../../../../assets/circle-minus.svg'
 
 export function TableDesktop() {
-    const { cart } = useCart()
+    const { cart, removeSnackFromCart } = useCart()
 
     return (
         <Container>
@@ -36,7 +38,7 @@ export function TableDesktop() {
                                     </button>
 
                                     <span>{item.quantity}</span>
-                                    
+
                                     <button type="button" onClick={() => console.log('incrementar')}>
                                         <img src={plusImg} alt="Incrementar" />
                                     </button>
@@ -46,7 +48,9 @@ export function TableDesktop() {
                                 <h5>{item.subtotal}</h5>
                             </td>
                             <td>
-                                Deletar
+                                <button type='button' onClick={() => removeSnackFromCart(item)}>
+                                    <FaTrashAlt />
+                                </button>
                             </td>
                         </tr>
                     ))}
