@@ -11,6 +11,7 @@ export default function Payment() {
 
             <Inner>
                 <Form>
+                    {/* SECTION 1 */}
                     <h4>Informações pessoais</h4>
 
                     <div className="field">
@@ -34,7 +35,9 @@ export default function Payment() {
                             <input type="text" id="document" name="document" />
                         </div>
                     </div>
+                    {/* ------ */}
 
+                    {/* SECTION 2 */}
                     <h4>Endereço de entrega</h4>
 
                     <div className="field">
@@ -104,6 +107,33 @@ export default function Payment() {
                             </select>
                         </div>
                     </div>
+                    {/* ------ */}
+
+                    {/* SECTION 3 */}
+                    <h4>Pagamento</h4>
+
+                    <div className="field">
+                        <label htmlFor="credit-card-number">Número do cartão</label>
+                        <input type="text" id="credit-card-number" name="credit-card-number" autoComplete="cc-number" />
+                    </div>
+
+                    <div className="field">
+                        <label htmlFor="credit-card-holder-number">Nome impresso no cartão</label>
+                        <input type="text" id="credit-card-holder-number" name="credit-card-holder-number" autoComplete="cc-name" />
+                    </div>
+
+                    <div className="grouped">
+                        <div className="field">
+                            <label htmlFor="credit-card-expiration">Validade (MM/AA)</label>
+                            <input type="text" id="credit-card-expiration" name="credit-card-expiration" autoComplete="cc-exp" />
+                        </div>
+
+                        <div className="field">
+                            <label htmlFor="credit-card-code">Código de segurança (CVV)</label>
+                            <input type="text" id="credit-card-code" name="credit-card-code" autoComplete="cc-csc" />
+                        </div>
+                    </div>
+                    {/* ------ */}
                 </Form>
             </Inner>
         </Container>
