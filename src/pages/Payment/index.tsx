@@ -88,7 +88,14 @@ export default function Payment() {
                                 name='mobile'
                                 control={control}
                                 render={({ field }) => (
-                                    <input type='text' />
+                                    <IMaskInput
+                                        type='tel'
+                                        id='mobile'
+                                        autoComplete='phone'
+                                        mask={'(00) 90000-0000'}
+                                        {...field}
+                                        placeholder='(00) 99999-9999'
+                                    />
                                 )}
                             />
 
