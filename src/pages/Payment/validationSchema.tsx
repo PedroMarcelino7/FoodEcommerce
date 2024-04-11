@@ -26,7 +26,7 @@ export const schema = yup
             .test('validateDocument', 'CPF/CNPJ inválido.', (value => isValidCPF(value) || isValidCNPJ(value))),
 
         // SECTION 2
-        zipcode: yup
+        zipCode: yup
             .string()
             .required('CEP é obrigatório.')
             .transform((value) => value.replace(/[^\d]+/g, '')),
