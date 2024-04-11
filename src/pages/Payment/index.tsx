@@ -135,9 +135,9 @@ export default function Payment() {
                         </div>
                     </div>
                     {/* ------ */}
-                </Form>
 
-                <PayOrder />
+                    <PayOrder />
+                </Form>
             </Inner>
         </Container>
     )
