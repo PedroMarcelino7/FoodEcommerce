@@ -1,6 +1,7 @@
-import { useForm, SubmitHandler } from 'react-hook-form'
+import { useForm, SubmitHandler, Controller } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
+import { IMaskInput } from 'react-imask';
 
 import { Head } from "../../components/Head";
 import { PayOrder } from "../../components/OrderCloseAction/PayOrder";
@@ -28,6 +29,7 @@ type FieldValues = yup.InferType<typeof schema>
 
 export default function Payment() {
     const {
+        control,
         register,
         handleSubmit,
         formState: { errors },
@@ -50,11 +52,13 @@ export default function Payment() {
 
                     <div className="field">
                         <label htmlFor="fullName">Nome completo</label>
-                        <input
-                            type="text"
-                            id="fullName"
-                            autoComplete="name"
-                            {...register('fullName')}
+
+                        <Controller
+                            name='fullName'
+                            control={control}
+                            render={({ field }) => (
+                                <input type='text' id='fullName' autoComplete='name' {...field} />
+                            )}
                         />
 
                         {errors.fullName &&
@@ -65,11 +69,12 @@ export default function Payment() {
                     <div className="grouped">
                         <div className="field">
                             <label htmlFor="email">E-mail</label>
-                            <input
-                                type="email"
-                                id="email"
-                                autoComplete="email"
-                                {...register('email')}
+                            <Controller
+                                name='email'
+                                control={control}
+                                render={({ field }) => (
+                                    <input type='email' id='email' autoComplete='email' {...field} />
+                                )}
                             />
 
                             {errors.email &&
@@ -79,11 +84,12 @@ export default function Payment() {
 
                         <div className="field">
                             <label htmlFor="mobile">Telefone</label>
-                            <input
-                                type="tel"
-                                id="mobile"
-                                autoComplete="phone"
-                                {...register('mobile')}
+                            <Controller
+                                name='mobile'
+                                control={control}
+                                render={({ field }) => (
+                                    <input type='text' />
+                                )}
                             />
 
                             {errors.mobile &&
