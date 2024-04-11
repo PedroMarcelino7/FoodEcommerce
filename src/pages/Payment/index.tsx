@@ -10,8 +10,6 @@ import { schema, FieldValues } from "./validationSchema";
 
 import { Container, Form, Inner } from "./styles";
 
-
-
 export default function Payment() {
     const {
         control,
