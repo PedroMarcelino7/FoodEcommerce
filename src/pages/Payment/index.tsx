@@ -1,9 +1,26 @@
+import { useForm, SubmitHandler } from 'react-hook-form'
+
 import { Head } from "../../components/Head";
 import { PayOrder } from "../../components/OrderCloseAction/PayOrder";
 import { OrderHeader } from "../../components/OrderHeader";
+
 import { Container, Form, Inner } from "./styles";
 
+type FieldValues = {
+    fullName: string
+    email: string
+    mobile: string
+}
+
 export default function Payment() {
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+    } = useForm<FieldValues>()
+
+    const onSubmit: SubmitHandler<FieldValues> = (data) => console.log(data)
+
     return (
         <Container>
             <Head title='Pagamento' />
@@ -11,13 +28,22 @@ export default function Payment() {
             <OrderHeader />
 
             <Inner>
-                <Form>
+                <Form onSubmit={handleSubmit(onSubmit)}>
                     {/* SECTION 1 */}
                     <h4>Informações pessoais</h4>
 
                     <div className="field">
-                        <label htmlFor="full-name">Nome completo</label>
-                        <input type="text" id="full-name" name="full-name" autoComplete="name" />
+                        <label htmlFor="fullName">Nome completo</label>
+                        <input
+                            type="text"
+                            id="fullName"
+                            autoComplete="name"
+                            {...register('fullName', { required: true })}
+                        />
+
+                        {errors.fullName &&
+                            <p className='error'>Campo obrigatório</p>
+                        }
                     </div>
 
                     <div className="grouped">
