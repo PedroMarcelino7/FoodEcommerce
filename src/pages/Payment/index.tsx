@@ -263,8 +263,8 @@ export default function Payment() {
                     <h4>Pagamento</h4>
 
                     <div className="field">
-                        <label htmlFor="credit-card-number">Número do cartão</label>
-                        <input type="text" id="credit-card-number" name="credit-card-number" autoComplete="cc-number" />
+                        <label htmlFor="creditCardNumber">Número do cartão</label>
+                        <input type="text" id="creditCardNumber" name="creditCardNumber" autoComplete="cc-number" />
                     </div>
 
                     <div className="field">

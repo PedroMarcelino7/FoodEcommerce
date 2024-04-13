@@ -47,6 +47,11 @@ export const schema = yup
         state: yup
             .string()
             .required('Estado é obrigatório.'),
+        
+        // SECTION 3
+        creditCardNumber: yup
+            .string()
+            .required()
     })
     .required()
 
