@@ -32,7 +32,15 @@ const localStorageKey = '@FoodEcommerce:cart'
 
 export function CartProvider({ children }: CartProviderProps) {
     const navigate = useNavigate()
-    const [cart, setCart] = useState<Snack[]>([])
+    const [cart, setCart] = useState<Snack[]>(() => {
+        const value = localStorage.getItem(localStorageKey)
+
+        if (value) {
+            return JSON.parse(value)
+        }
+
+        return []
+    })
 
     function saveCart(items: Snack[]) {
         setCart(items)
@@ -114,7 +122,7 @@ export function CartProvider({ children }: CartProviderProps) {
 
     function payOrder(customer: CustomerData) {
         console.log('payOrder', cart, customer)
-        
+
         return
     }
 
