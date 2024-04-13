@@ -10,7 +10,12 @@ import { schema, FieldValues } from "./validationSchema";
 
 import { Container, Form, Inner } from "./styles";
 
+import { useCart } from '../../hooks/useCart';
+
+import { CustomerData } from '../../interfaces/CustomerData';
+
 export default function Payment() {
+    const { payOrder } = useCart()
     const {
         control,
         handleSubmit,
@@ -19,7 +24,7 @@ export default function Payment() {
         resolver: yupResolver(schema),
     })
 
-    const onSubmit: SubmitHandler<FieldValues> = (data) => console.log(data)
+    const onSubmit: SubmitHandler<FieldValues> = (data) => payOrder(data as CustomerData)
 
     return (
         <Container>
