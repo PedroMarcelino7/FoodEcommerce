@@ -123,7 +123,13 @@ export function CartProvider({ children }: CartProviderProps) {
     function payOrder(customer: CustomerData) {
         console.log('payOrder', cart, customer)
 
+        clearCart()
+
         return
+    }
+
+    function clearCart() {
+        localStorage.removeItem(localStorageKey)
     }
 
     return (
