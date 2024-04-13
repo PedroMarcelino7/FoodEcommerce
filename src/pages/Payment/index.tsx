@@ -1,6 +1,6 @@
 import { useForm, SubmitHandler, Controller } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
-import { IMaskInput } from 'react-imask';
+import { IMask, IMaskInput } from 'react-imask';
 
 import { Head } from "../../components/Head";
 import { PayOrder } from "../../components/OrderCloseAction/PayOrder";
